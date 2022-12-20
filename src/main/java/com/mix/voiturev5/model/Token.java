@@ -1,4 +1,4 @@
-package com.mix.voiturev5.model;
+package com.mix.avion.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,16 +22,10 @@ public class Token {
     private LocalDate datecreation;
 
     @Column(name = "dateexpiration")
-
-
     private LocalDate dateexpiration;
 
+    public Token() {
 
-    public Token(Administrateur idadmin, String token, LocalDate datecreation, LocalDate dateexpiration) {
-        this.idadmin = idadmin;
-        this.token = token;
-        this.datecreation = datecreation;
-        this.dateexpiration = dateexpiration;
     }
 
     public LocalDate getDateexpiration() {
@@ -72,5 +66,11 @@ public class Token {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+    public Token(Administrateur idadmin, String token, LocalDate datecreation, LocalDate dateexpiration) {
+        this.idadmin = idadmin;
+        this.token = token;
+        this.datecreation = datecreation;
+        this.dateexpiration = dateexpiration;
     }
 }
