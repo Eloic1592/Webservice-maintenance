@@ -1,6 +1,5 @@
 package com.service.maintenance.controller;
 
-import com.service.maintenance.model.TachePrioritaire;
 import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.repository.TypeEntretienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +30,12 @@ public class TypeEntretienController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    //    Insertion nouvelle tache achevees
+    //    Insertion nouvelle type entretien
     @PostMapping("/inserttypeentretien")
     public ResponseEntity<TypeEntretien> insertTypeentretien(@RequestBody TypeEntretien v) {
         try {
             typeEntretienRepository.save(v);
+            System.out.println(typeEntretienRepository.save(v));
             return new ResponseEntity<>(v, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

@@ -24,7 +24,7 @@ public class TypeEntretien {
         this.etat = etat;
     }
 
-    public String getType_Entretien() {
+    public String getTypeEntretien() {
         return typeEntretien;
     }
 
@@ -39,5 +39,4 @@ public class TypeEntretien {
     public void setId(Integer id) {
         this.id = id;
     }
-
 }

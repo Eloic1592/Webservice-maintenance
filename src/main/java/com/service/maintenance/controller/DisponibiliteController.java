@@ -1,8 +1,6 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Disponibilite;
-import com.service.maintenance.model.Entretien;
-import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.repository.DisponibiliteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

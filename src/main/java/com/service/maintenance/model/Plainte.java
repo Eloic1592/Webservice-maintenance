@@ -11,9 +11,6 @@ public class Plainte {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "identretien", nullable = false)
-    private Integer identretien ;
-
     @Column(name = "description")
     private String description;
 
@@ -45,14 +42,6 @@ public class Plainte {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getIdentretien() {
-        return identretien;
-    }
-
-    public void setIdentretien(Integer identretien) {
-        this.identretien = identretien;
     }
 
     public Integer getId() {

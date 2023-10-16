@@ -1,8 +1,6 @@
 package com.service.maintenance.controller;
 
-import com.service.maintenance.model.Tache;
 import com.service.maintenance.model.TacheAcheve;
-import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.repository.TacheAcheveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

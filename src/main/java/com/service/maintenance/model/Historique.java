@@ -31,14 +31,6 @@ public class Historique {
         this.etat = etat;
     }
 
-    public Timestamp getDateHistorique() {
-        return dateHistorique;
-    }
-
-    public void setDateHistorique(Timestamp dateHistorique) {
-        this.dateHistorique = dateHistorique;
-    }
-
     public String getHistorique() {
         return historique;
     }
@@ -53,6 +45,14 @@ public class Historique {
 
     public void setMotCle(String motCle) {
         this.motCle = motCle;
+    }
+
+    public Timestamp getDateHistorique() {
+        return dateHistorique;
+    }
+
+    public void setDateHistorique(Timestamp dateHistorique) {
+        this.dateHistorique = dateHistorique;
     }
 
     public Integer getId() {
