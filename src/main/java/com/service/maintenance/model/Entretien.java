@@ -10,7 +10,7 @@ public class Entretien {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "idtypeEntretien", nullable = false)
+    @Column(name = "idtype_entretien", nullable = false)
     private Integer idtypeEntretien;
 
     @Column(name = "idmateriel", nullable = false)
