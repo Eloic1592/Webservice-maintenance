@@ -1,5 +1,6 @@
 package com.service.maintenance.controller;
 
+import com.service.maintenance.model.Materiel;
 import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.repository.TypeEntretienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class TypeEntretienController {
     }
     //    Insertion nouvelle type entretien
     @PostMapping("/inserttypeentretien")
-    public ResponseEntity<TypeEntretien> insertTypeentretien(@RequestBody TypeEntretien v) {
+    public ResponseEntity<TypeEntretien> insertMateriel(@RequestBody TypeEntretien v) {
         try {
             typeEntretienRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);
