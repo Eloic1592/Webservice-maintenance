@@ -24,7 +24,7 @@ public class TypeEntretien {
         this.etat = etat;
     }
 
-    public String getTypeEntretien() {
+    public String getType_Entretien() {
         return typeEntretien;
     }
 

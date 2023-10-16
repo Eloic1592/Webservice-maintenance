@@ -33,7 +33,7 @@ public class DisponibiliteController {
         }
     }
 //    Disponibilite par technicien
-    @GetMapping("/getdisptech")
+    @GetMapping("/getdisptech/{idtech}")
     public ResponseEntity<List<Disponibilite>> getdispotech(Integer idtech,Integer etat){
         try {
             List<Disponibilite> disponibilites = new ArrayList<Disponibilite>();
