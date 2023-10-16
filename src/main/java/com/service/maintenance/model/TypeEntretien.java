@@ -13,7 +13,7 @@ public class TypeEntretien {
     @Column(name = "type_entretien", nullable = false)
     private String typeEntretien;
 
-    @Column(name = "etat")
+    @Column(name = "etat", nullable = false)
     private Integer etat;
 
     public Integer getEtat() {
