@@ -33,7 +33,7 @@ public class TypeEntretienController {
     }
     //    Insertion nouvelle type entretien
     @PostMapping("/inserttypeentretien")
-    public ResponseEntity<TypeEntretien> insertMateriel(@RequestBody TypeEntretien v) {
+    public ResponseEntity<TypeEntretien> insertTypeentretien(@RequestBody TypeEntretien v) {
         try {
             typeEntretienRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);
