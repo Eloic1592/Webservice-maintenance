@@ -19,7 +19,7 @@ public class TacheController {
     TacheRepository tacheRepository;
 
 //    Liste des taches
-    @GetMapping("/gettache")
+    @GetMapping("/getalltache")
     public ResponseEntity<List<Tache>> getlist(){
         try {
             List<Tache> taches = new ArrayList<Tache>();
