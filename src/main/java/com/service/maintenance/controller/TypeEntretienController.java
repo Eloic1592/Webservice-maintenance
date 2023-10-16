@@ -35,7 +35,6 @@ public class TypeEntretienController {
     public ResponseEntity<TypeEntretien> insertTypeentretien(@RequestBody TypeEntretien v) {
         try {
             typeEntretienRepository.save(v);
-            System.out.println(typeEntretienRepository.save(v));
             return new ResponseEntity<>(v, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
