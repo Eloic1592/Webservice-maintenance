@@ -14,7 +14,7 @@ public class Plainte {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "date_depot")
+    @Column(name = "date_depot",nullable = false)
     private Timestamp dateDepot;
 
     @Column(name = "etat", nullable = false)
