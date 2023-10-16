@@ -32,7 +32,7 @@ public class TechnicienController {
         }
     }
     //    Insertion nouveau technicien
-    @PostMapping("/insertintervention")
+    @PostMapping("/inserttechnicien")
     public ResponseEntity<Technicien> insertTechnicien(@RequestBody Technicien v) {
         try {
             technicienRepository.save(v);
