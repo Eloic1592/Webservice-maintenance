@@ -1,13 +1,12 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Entretien;
+import com.service.maintenance.model.Materiel;
 import com.service.maintenance.repository.EntretienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,8 @@ public class EntretienController {
     @Autowired
     EntretienRepository entretienRepository;
 
-    @GetMapping("/getentretien")
+//    Liste des entretiens
+    @GetMapping("/getallentretien")
     public ResponseEntity<List<Entretien>> getlist(){
         try {
             List<Entretien> entretiens = new ArrayList<Entretien>();
@@ -27,6 +27,17 @@ public class EntretienController {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
             return new ResponseEntity<>(entretiens, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //    Insertion un nouvel entretien
+    @PostMapping("/insertentretien")
+    public ResponseEntity<Entretien> insertMateriel(@RequestBody Entretien v) {
+        try {
+            entretienRepository.save(v);
+            return new ResponseEntity<>(v, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
