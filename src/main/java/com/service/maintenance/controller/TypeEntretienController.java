@@ -38,6 +38,7 @@ public class TypeEntretienController {
             typeEntretienRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);
         } catch (Exception e) {
+            Systemtem.out.println("Message+"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

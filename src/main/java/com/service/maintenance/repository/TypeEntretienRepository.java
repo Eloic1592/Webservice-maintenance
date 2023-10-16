@@ -7,5 +7,6 @@ import java.util.List;
 
 
 public interface TypeEntretienRepository extends JpaRepository<TypeEntretien, Integer> {
+
     List<TypeEntretien> findAllByEtat(Integer etat);
 }
