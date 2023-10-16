@@ -49,7 +49,7 @@ public class DisponibiliteController {
 
     //    Insertion une nouveau disponibilite
     @PostMapping("/insertdisponibilite")
-    public ResponseEntity<Disponibilite> insertMateriel(@RequestBody Disponibilite v) {
+    public ResponseEntity<Disponibilite> insertDisponibilite(@RequestBody Disponibilite v) {
         try {
             disponibiliteRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);

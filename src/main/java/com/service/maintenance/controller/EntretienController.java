@@ -34,7 +34,7 @@ public class EntretienController {
 
     //    Insertion un nouvel entretien
     @PostMapping("/insertentretien")
-    public ResponseEntity<Entretien> insertMateriel(@RequestBody Entretien v) {
+    public ResponseEntity<Entretien> insertEntretien(@RequestBody Entretien v) {
         try {
             entretienRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);

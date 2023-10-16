@@ -18,6 +18,7 @@ public class TypeEntretienController {
     @Autowired
     TypeEntretienRepository typeEntretienRepository;
 
+//    Liste des types d'entretiens
     @GetMapping("/gettypeentretien")
     public ResponseEntity<List<TypeEntretien>> getlist(){
         try {
