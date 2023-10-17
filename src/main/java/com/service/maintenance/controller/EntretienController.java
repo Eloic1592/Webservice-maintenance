@@ -1,7 +1,7 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Entretien;
-import com.service.maintenance.model.Materiel;
+import com.service.maintenance.model.VEntretien;
 import com.service.maintenance.repository.EntretienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,18 +19,21 @@ public class EntretienController {
 
 //    Liste des entretiens
     @GetMapping("/getallentretien")
-    public ResponseEntity<List<Entretien>> getlist(){
+    public ResponseEntity<List<VEntretien>> getlist(){
         try {
-            List<Entretien> entretiens = new ArrayList<Entretien>();
-            entretienRepository.findAllByEtat(0).forEach(entretiens::add);
-            if (entretiens.isEmpty()) {
+            List<VEntretien> vEntretiens = new ArrayList<VEntretien>();
+            entretienRepository.findEntretienByEtat(0).forEach(vEntretiens::add);
+            if (vEntretiens.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(entretiens, HttpStatus.OK);
+            return new ResponseEntity<>(vEntretiens, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
 
     //    Insertion un nouvel entretien
     @PostMapping("/insertentretien")
