@@ -19,14 +19,14 @@ public class EntretienController {
 
 //    Liste des entretiens
     @GetMapping("/getallentretien")
-    public ResponseEntity<List<VEntretien>> getlist(){
+    public ResponseEntity<List<Entretien>> getlist(){
         try {
-            List<VEntretien> vEntretiens = new ArrayList<VEntretien>();
-            entretienRepository.findEntretienByEtat(0).forEach(vEntretiens::add);
-            if (vEntretiens.isEmpty()) {
+            List<Entretien> entretiens = new ArrayList<Entretien>();
+            entretienRepository.findAllByEtat(0).forEach(entretiens::add);
+            if (entretiens.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(vEntretiens, HttpStatus.OK);
+            return new ResponseEntity<>(entretiens, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -45,4 +45,5 @@ public class EntretienController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }
