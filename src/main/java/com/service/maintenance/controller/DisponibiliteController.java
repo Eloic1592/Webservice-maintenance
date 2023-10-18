@@ -1,7 +1,9 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Disponibilite;
+import com.service.maintenance.model.VDispo;
 import com.service.maintenance.repository.DisponibiliteRepository;
+import com.service.maintenance.repository.VDispoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,10 @@ import java.util.List;
 public class DisponibiliteController {
     @Autowired
     DisponibiliteRepository disponibiliteRepository;
+
+
+    @Autowired
+    VDispoRepository vDispoRepository;
 
 //    Voir toute disponibilite
     @GetMapping("/getalldisponibilite")
@@ -51,6 +57,21 @@ public class DisponibiliteController {
         try {
             disponibiliteRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //    Voir toute v_disponibilite
+    @GetMapping("/getallvdisponibilite")
+    public ResponseEntity<List<VDispo>> getlistvdispo(){
+        try {
+            List<VDispo> vDispos = new ArrayList<VDispo>();
+            vDispoRepository.findAllByEtat(0).forEach(vDispos::add);
+            if (vDispos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(vDispos, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
