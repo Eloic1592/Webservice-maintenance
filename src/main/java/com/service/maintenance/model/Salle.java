@@ -9,7 +9,7 @@ public class Salle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    
+
     @Column(name = "salle", nullable = false)
     private String salle;
 
