@@ -15,6 +15,11 @@ public class Disponibilite {
     @Column(name = "idtechnicien")
     private Integer idtechnicien;
 
+
+    @Column(name = "motif")
+    private String motif;
+
+
     @Column(name = "date_debut")
     private Timestamp dateDebut;
 
@@ -62,5 +67,13 @@ public class Disponibilite {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getMotif() {
+        return motif;
+    }
+
+    public void setMotif(String motif) {
+        this.motif = motif;
     }
 }
