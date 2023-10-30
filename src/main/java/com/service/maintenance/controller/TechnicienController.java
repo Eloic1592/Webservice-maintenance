@@ -1,6 +1,5 @@
 package com.service.maintenance.controller;
 
-import com.service.maintenance.model.Intervention;
 import com.service.maintenance.model.Technicien;
 import com.service.maintenance.repository.TechnicienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
