@@ -13,6 +13,9 @@ public class Materiel {
     @Column(name = "materiel", nullable = false)
     private String materiel;
 
+    @Column(name = "icon", nullable = false)
+    private String icon;
+
     @Column(name = "etat", nullable = false)
     private Integer etat;
 
@@ -38,5 +41,13 @@ public class Materiel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.id = icon;
     }
 }
