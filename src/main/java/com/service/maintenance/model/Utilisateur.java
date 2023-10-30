@@ -35,60 +35,12 @@ public class Utilisateur {
     @Column(name = "etat", nullable = false)
     private Integer etat;
 
-    public Integer getEtat() {
-        return etat;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEtat(Integer etat) {
-        this.etat = etat;
-    }
-
-    public Integer getIdtypeUtilisateur() {
-        return idtypeUtilisateur;
-    }
-
-    public void setIdtypeUtilisateur(Integer idtypeUtilisateur) {
-        this.idtypeUtilisateur = idtypeUtilisateur;
-    }
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public LocalDate getDtn() {
-        return dtn;
-    }
-
-    public void setDtn(LocalDate dtn) {
-        this.dtn = dtn;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -99,11 +51,59 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public Integer getId() {
-        return id;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public LocalDate getDtn() {
+        return dtn;
+    }
+
+    public void setDtn(LocalDate dtn) {
+        this.dtn = dtn;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public Integer getIdtypeUtilisateur() {
+        return idtypeUtilisateur;
+    }
+
+    public void setIdtypeUtilisateur(Integer idtypeUtilisateur) {
+        this.idtypeUtilisateur = idtypeUtilisateur;
+    }
+
+    public Integer getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Integer etat) {
+        this.etat = etat;
     }
 }

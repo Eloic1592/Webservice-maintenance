@@ -15,19 +15,20 @@ public class UtilisateurController {
     @Autowired
     UtilisateurRepository utilisateurRepository;
 
-    @GetMapping("/getuser")
-    public ResponseEntity<Utilisateur> getuser(Utilisateur user){
+    @PostMapping("/finduser")
+    public ResponseEntity<Utilisateur> login(@RequestBody String email,String mdp) {
         try {
-            Utilisateur utilisateur = utilisateurRepository.findByEmailAndMdp(user);
-            if (utilisateur==null) {
+            Utilisateur v=utilisateurRepository.findByEmailAndMdp(email, mdp);
+            if (v==null) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(utilisateur, HttpStatus.OK);
+            return new ResponseEntity<>(v, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     //    Insertion nouvelle type entretien
     @PostMapping("/insertuser")
     public ResponseEntity<Utilisateur> insertutilisateur(@RequestBody Utilisateur v) {
@@ -40,3 +41,4 @@ public class UtilisateurController {
         }
     }
 }
+

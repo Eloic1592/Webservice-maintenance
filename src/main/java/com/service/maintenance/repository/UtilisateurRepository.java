@@ -1,10 +1,9 @@
 package com.service.maintenance.repository;
 
 import com.service.maintenance.model.Utilisateur;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-import javax.rmi.CORBA.Util;
 
-public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
-    Utilisateur findByEmailAndMdp(Utilisateur user);
+public interface UtilisateurRepository extends CrudRepository<Utilisateur, Integer> {
+    Utilisateur findByEmailAndMdp(String email,String mdp);
 }
