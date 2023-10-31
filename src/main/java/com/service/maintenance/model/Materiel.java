@@ -48,6 +48,6 @@ public class Materiel {
     }
 
     public void setIcon(String icon) {
-        this.id = icon;
+        this.icon = icon;
     }
 }

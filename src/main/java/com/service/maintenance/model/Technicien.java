@@ -19,7 +19,6 @@ public class Technicien {
     private String prenom;
 
     @Column(name = "code",length = 50)
-    @Transient
     private String code;
 
     @Column(name = "email", nullable = false)
