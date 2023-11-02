@@ -1,7 +1,11 @@
 package com.service.maintenance.controller;
 
 
+import com.service.maintenance.model.Technicien;
+import com.service.maintenance.model.Tokentech;
+import com.service.maintenance.model.Tokenuser;
 import com.service.maintenance.model.Utilisateur;
+import com.service.maintenance.repository.TokenuserRepository;
 import com.service.maintenance.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +18,23 @@ public class UtilisateurController {
 
     @Autowired
     UtilisateurRepository utilisateurRepository;
+
+    @Autowired
+    TokenuserRepository tokenuserRepository;
+
+    @PostMapping("/signinUser")
+    public ResponseEntity<Tokenuser> login(@RequestBody Utilisateur user) throws Exception {
+
+        if( utilisateurRepository.findByEmailAndMdp(user.getEmail(),user.getMdp()) != null) {
+            Utilisateur ad = utilisateurRepository.findByEmailAndMdp(user.getEmail(),user.getMdp());
+            Tokenuser t = new mix.projetcloudenchere.service.TokenService().createTokenUser(ad);
+            Tokenuser saved = tokenuserRepository.save(t);
+            return new ResponseEntity<>(saved, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+    }
 
     @PostMapping("/finduser")
     public ResponseEntity<Utilisateur> login(@RequestBody String email,String mdp) {

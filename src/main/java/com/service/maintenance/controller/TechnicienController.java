@@ -1,7 +1,13 @@
 package com.service.maintenance.controller;
 
+import com.service.maintenance.model.Admin;
 import com.service.maintenance.model.Technicien;
+import com.service.maintenance.model.Tokenadmin;
+import com.service.maintenance.model.Tokentech;
+import com.service.maintenance.repository.AdminRepository;
 import com.service.maintenance.repository.TechnicienRepository;
+import com.service.maintenance.repository.TokenadminRepository;
+import com.service.maintenance.repository.TokentechRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +22,22 @@ public class TechnicienController {
     @Autowired
     TechnicienRepository technicienRepository;
 
+    @Autowired
+    TokentechRepository tokentechRepository;
+
+    @PostMapping("/signinTech")
+    public ResponseEntity<Tokentech> login(@RequestBody Technicien tech) throws Exception {
+
+        if( technicienRepository.findByEmailAndMdp(tech.getEmail(),tech.getMdp()) != null) {
+            Technicien ad = technicienRepository.findByEmailAndMdp(tech.getEmail(),tech.getMdp());
+            Tokentech t = new mix.projetcloudenchere.service.TokenService().createTokenTech(ad);
+            Tokentech saved = tokentechRepository.save(t);
+            return new ResponseEntity<>(saved, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+    }
 //    Liste des techniciens
     @GetMapping("/gettechnicien")
     public ResponseEntity<List<Technicien>> getlist(){

@@ -30,7 +30,6 @@ public class AdminController {
             System.out.println();
             Tokenadmin t = new TokenService().createTokenAdmin(ad);
             Tokenadmin saved = tokenadmin.save(t);
-//            System.out.println("LoginUtilisateur" + t.getToken() + t.getId() + t.getRole());
             return new ResponseEntity<>(saved, HttpStatus.OK);
         }
         else{

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface TechnicienRepository extends JpaRepository<Technicien, Integer> {
     List<Technicien> findAllByEtat(Integer etat);
+
+    Technicien findByEmailAndMdp(String email,String mdp);
 }
