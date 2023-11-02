@@ -18,7 +18,9 @@ public class Technicien {
     @Column(name = "prenom", nullable = false)
     private String prenom;
 
-    @Column(name = "code",nullable =false)
+
+    @Column(name = "code")
+    @Transient
     private String code;
 
     @Column(name = "email", nullable = false)
