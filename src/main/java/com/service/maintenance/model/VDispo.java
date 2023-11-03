@@ -21,6 +21,9 @@ public class VDispo {
 
     @Column(name = "date_fin")
     private Instant dateFin;
+	
+    @Column(name = "motif")
+    private String motif;
 
     @Column(name = "etat")
     private Integer etat;
@@ -59,6 +62,10 @@ public class VDispo {
 
     public Integer getId() {
         return id;
+    }
+
+    public String getMotif() {
+        return motif;
     }
 
     protected VDispo() {

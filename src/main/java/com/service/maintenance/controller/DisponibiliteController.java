@@ -38,10 +38,10 @@ public class DisponibiliteController {
     }
 //    Disponibilite par technicien
     @GetMapping("/getdisptech/{idtech}")
-    public ResponseEntity<List<Disponibilite>> getdispotech(Integer idtech,Integer etat){
+    public ResponseEntity<List<Disponibilite>> getdispotech(Integer idtech){
         try {
             List<Disponibilite> disponibilites = new ArrayList<Disponibilite>();
-            disponibiliteRepository.findAllByIdtechnicienAndEtat(idtech,etat).forEach(disponibilites::add);
+            disponibiliteRepository.findAllByIdtechnicienAndEtat(idtech,0).forEach(disponibilites::add);
             if (disponibilites.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -68,6 +68,21 @@ public class DisponibiliteController {
         try {
             List<VDispo> vDispos = new ArrayList<VDispo>();
             vDispoRepository.findAllByEtat(0).forEach(vDispos::add);
+            if (vDispos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(vDispos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //    Voir toute v_disponibilite par technicien
+    @GetMapping("/getvdisponibilite/{idtech}")
+    public ResponseEntity<List<VDispo>> getlistvdispo(@PathVariable Integer idtech){
+        try {
+            List<VDispo> vDispos = new ArrayList<VDispo>();
+            vDispoRepository.findAllByIdtechnicienAndEtat(idtech,0).forEach(vDispos::add);
             if (vDispos.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

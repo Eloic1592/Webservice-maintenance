@@ -8,4 +8,6 @@ import java.util.List;
 public interface VDispoRepository extends JpaRepository<VDispo, Integer> {
 
     List<VDispo> findAllByEtat(Integer etat);
+
+    List<VDispo> findAllByIdtechnicienAndEtat(Integer idtech,Integer etat);
 }
