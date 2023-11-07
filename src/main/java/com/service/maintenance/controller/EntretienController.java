@@ -1,6 +1,7 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Entretien;
+import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.model.VEntretien;
 import com.service.maintenance.repository.EntretienRepository;
 import com.service.maintenance.repository.VEntretienRepository;
@@ -62,6 +63,19 @@ public class EntretienController {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
             return new ResponseEntity<>(vEntretiens, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/findentretien/{id}")
+    public ResponseEntity<Entretien> find(@PathVariable Integer id){
+        try {
+            Entretien entretien=entretienRepository.findEntretienById(id);
+            if (entretien==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(entretien, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

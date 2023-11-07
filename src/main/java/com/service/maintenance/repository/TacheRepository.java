@@ -12,5 +12,6 @@ public interface TacheRepository extends JpaRepository<Tache, Integer> {
 
     List<Tache> findAllByIdplainte(Integer idplainte);
 
+    Tache findTacheById(Integer id);
 
 }

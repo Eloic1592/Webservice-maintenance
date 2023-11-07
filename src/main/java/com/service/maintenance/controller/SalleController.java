@@ -41,4 +41,18 @@ public class SalleController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/findsalle/{id}")
+    public ResponseEntity<Salle> find(@PathVariable Integer id){
+        try {
+            Salle salle=salleRepository.findSalleById(id);
+            if (salle==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(salle, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

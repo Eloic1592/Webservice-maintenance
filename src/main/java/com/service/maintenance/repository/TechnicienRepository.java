@@ -10,4 +10,6 @@ public interface TechnicienRepository extends JpaRepository<Technicien, Integer>
     List<Technicien> findAllByEtat(Integer etat);
 
     Technicien findByCodeAndMdp(String code,String mdp);
+
+    Technicien findTechnicienById(Integer id);
 }

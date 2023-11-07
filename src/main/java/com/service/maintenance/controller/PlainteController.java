@@ -64,25 +64,6 @@ public class PlainteController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-//    Insertion nouvel intervention
-    @PostMapping("/insertplainte")
-    public ResponseEntity<Plainte> insertIntervention(@RequestBody Plainte v, @Nullable PlainteIndividuel pi,@Nullable PlainteSalle ps, Integer choix) {
-        try {
-            Plainte p= plainteRepository.save(v);
-            if(choix==1){
-               plainteIndividuelRepository.save(pi);
-                return new ResponseEntity<>(v, HttpStatus.OK);
-
-            }else{
-                plainteSalleRepository.save(ps);
-                return new ResponseEntity<>(v, HttpStatus.OK);
-            }
-        } catch (Exception e) {
-            System.out.println("Message:"+e.getMessage());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     @GetMapping("/getplainteuser/{iduser}")
     public ResponseEntity<List<VPlainteInd>> getlistinduser(@PathVariable Integer iduser){
         try {
@@ -93,6 +74,20 @@ public class PlainteController {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
             return new ResponseEntity<>(vPlainteInds, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/findvplainte/{idplainte}")
+    public ResponseEntity<VPlainteInd> find(@PathVariable Integer idplainte){
+        try {
+            VPlainteInd vPlainteInd=vPlainteIndRepository.findVPlainteIndByIdplainte(idplainte);
+            if (vPlainteInd==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(vPlainteInd, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

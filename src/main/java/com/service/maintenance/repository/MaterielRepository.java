@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MaterielRepository extends JpaRepository<Materiel, Integer> {
     List<Materiel> findAllByEtat(Integer etat);
+    Materiel findMaterielById(Integer id);
 }

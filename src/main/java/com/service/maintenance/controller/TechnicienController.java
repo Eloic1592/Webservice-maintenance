@@ -59,4 +59,17 @@ public class TechnicienController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/findtech/{id}")
+    public ResponseEntity<Technicien> find(@PathVariable Integer id){
+        try {
+            Technicien technicien=technicienRepository.findTechnicienById(id);
+            if (technicien==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(technicien, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

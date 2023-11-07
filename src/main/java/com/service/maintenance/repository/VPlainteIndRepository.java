@@ -9,4 +9,6 @@ public interface VPlainteIndRepository extends JpaRepository<VPlainteInd, Intege
     List<VPlainteInd> findAllByEtat(Integer etat);
 
     List<VPlainteInd> findAllByIdutilisateur(Integer iduser);
+
+    VPlainteInd findVPlainteIndByIdplainte(Integer idplainte);
 }

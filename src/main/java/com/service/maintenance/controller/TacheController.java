@@ -61,4 +61,18 @@ public class TacheController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/findtache/{id}")
+    public ResponseEntity<Tache> find(@PathVariable Integer id){
+        try {
+            Tache tache=tacheRepository.findTacheById(id);
+            if (tache==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(tache, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.service.maintenance.controller;
 
 import com.service.maintenance.model.Materiel;
+import com.service.maintenance.model.Salle;
 import com.service.maintenance.model.TypeEntretien;
 import com.service.maintenance.repository.TypeEntretienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,21 @@ public class TypeEntretienController {
         try {
             typeEntretienRepository.save(v);
             return new ResponseEntity<>(v, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @GetMapping("/findtypeentretien/{id}")
+    public ResponseEntity<TypeEntretien> find(@PathVariable Integer id){
+        try {
+            TypeEntretien typeEntretien=typeEntretienRepository.findTypeEntretienById(id);
+            if (typeEntretien==null) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(typeEntretien, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("Message:"+e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
