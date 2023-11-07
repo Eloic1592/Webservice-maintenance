@@ -3,7 +3,7 @@ package com.service.maintenance.model;
 import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.sql.Timestamp;
 
 @Entity
 @Immutable
@@ -17,6 +17,8 @@ public class VPlainteInd {
     @Column(name = "nom")
     private String nom;
 
+    @Column(name = "idutilisateur")
+    private Integer idutilisateur;
 
     @Column(name = "type_utilisateur")
     private String typeUtilisateur;
@@ -30,12 +32,16 @@ public class VPlainteInd {
     private String description;
 
     @Column(name = "date_depot")
-    private Instant dateDepot;
+    private Timestamp dateDepot;
 
     @Column(name = "etat")
     private Integer etat;
 
-    public Instant getDateDepot() {
+    public Integer getIdutilisateur() {
+        return idutilisateur;
+    }
+
+    public Timestamp getDateDepot() {
         return dateDepot;
     }
 

@@ -1,12 +1,8 @@
 package mix.projetcloudenchere.service;
 
 
-import com.service.maintenance.model.Admin;
-import com.service.maintenance.model.Utilisateur;
-import com.service.maintenance.model.Tokenuser;
-import com.service.maintenance.model.Tokenadmin;
-import com.service.maintenance.model.Technicien;
-import com.service.maintenance.model.Tokentech;
+import com.service.maintenance.model.*;
+
 import java.security.MessageDigest;
 import java.sql.Date;
 import java.time.LocalDate;

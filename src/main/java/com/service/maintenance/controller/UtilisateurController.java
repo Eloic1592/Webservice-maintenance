@@ -1,8 +1,6 @@
 package com.service.maintenance.controller;
 
 
-import com.service.maintenance.model.Technicien;
-import com.service.maintenance.model.Tokentech;
 import com.service.maintenance.model.Tokenuser;
 import com.service.maintenance.model.Utilisateur;
 import com.service.maintenance.repository.TokenuserRepository;

@@ -1,18 +1,22 @@
 package com.service.maintenance.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
-@Table(name = "plainte")
-public class Plainte {
+@Table(name = "question")
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "date_depot",nullable = false)
-    private Timestamp dateDepot;
+
+    @Column(name = "question", nullable = false)
+    private String question;
+
+
+    @Column(name = "reponse", nullable = false)
+    private String reponse;
 
     @Column(name = "etat", nullable = false)
     private Integer etat;
@@ -25,12 +29,20 @@ public class Plainte {
         this.etat = etat;
     }
 
-    public Timestamp getDateDepot() {
-        return dateDepot;
+    public String getReponse() {
+        return reponse;
     }
 
-    public void setDateDepot(Timestamp dateDepot) {
-        this.dateDepot = dateDepot;
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public Integer getId() {

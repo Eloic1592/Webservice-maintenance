@@ -1,6 +1,7 @@
 package com.service.maintenance.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "technicien")
@@ -10,21 +11,17 @@ public class Technicien {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-
     @Column(name = "nom", nullable = false)
     private String nom;
-
 
     @Column(name = "prenom", nullable = false)
     private String prenom;
 
+    @Column(name = "dtn", nullable = false)
+    private LocalDate dtn;
 
-    @Column(name = "code")
-    @Transient
+    @Column(name = "code", length = 20)
     private String code;
-
-    @Column(name = "email", nullable = false)
-    private String email;
 
     @Column(name = "mdp", nullable = false)
     private String mdp;
@@ -48,20 +45,20 @@ public class Technicien {
         this.mdp = mdp;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public LocalDate getDtn() {
+        return dtn;
+    }
+
+    public void setDtn(LocalDate dtn) {
+        this.dtn = dtn;
     }
 
     public String getPrenom() {

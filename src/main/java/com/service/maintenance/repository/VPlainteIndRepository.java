@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VPlainteIndRepository extends JpaRepository<VPlainteInd, Integer> {
     List<VPlainteInd> findAllByEtat(Integer etat);
+
+    List<VPlainteInd> findAllByIdutilisateur(Integer iduser);
 }
