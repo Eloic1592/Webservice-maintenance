@@ -75,4 +75,14 @@ public class TacheController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    //    Insertion nouvelle tache
+    @PutMapping("/updatetache")
+    public ResponseEntity<Tache> updatetache(@RequestBody Tache v) {
+        try {
+            tacheRepository.save(v);
+            return new ResponseEntity<>(v, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -55,4 +55,16 @@ public class SalleController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    //    Insertion nouvelle type entretien
+    @PutMapping("/updatesalle")
+    public ResponseEntity<Salle> updatesalle(@RequestBody Salle v) {
+        try {
+            salleRepository.save(v);
+            return new ResponseEntity<>(v, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Message:"+e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
